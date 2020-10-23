@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 
-app.get('/', (req, res) => res.send('HELLO PARTICLE!'));
+app.get('/particle', (req, res) => res.send('HELLO PARTICLE!'));
 
 const PORT = process.env.PORT || 3001;
 
