@@ -1,0 +1,31 @@
+{
+  "name": "particle",
+  "version": "1.0.0",
+  "description": "Receive and save particle data",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonford1/particle.git"
+  },
+  "keywords": [
+    "IoT"
+  ],
+  "author": "Jason Ford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonford1/particle/issues"
+  },
+  "homepage": "https://github.com/jasonford1/particle#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "tedious": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
