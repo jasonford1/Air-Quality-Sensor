@@ -2,10 +2,10 @@
   "name": "particle",
   "version": "1.0.0",
   "description": "Receive and save particle data",
-  "main": "app.js",
+  "main": "particle.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node particle.js",
+    "dev": "nodemon particle.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "tedious": "^9.2.1"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.6"
   }
 }
