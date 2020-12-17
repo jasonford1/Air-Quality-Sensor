@@ -3,7 +3,7 @@ const { sql } = require('../config/database')
 class EnvVals {
     constructor(uid, coreid, dateTime, temp, humidity, pressure, airQuality, dustLpo, dustRatio, dustConcentration) {
         this.table = {};
-        this.table.name = '[dev-env-vals]';
+        this.table.name = '[env-vals]';
 
         this.uid = {};
         this.uid.value = uid;
