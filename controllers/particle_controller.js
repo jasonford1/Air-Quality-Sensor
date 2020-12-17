@@ -26,13 +26,15 @@ exports.index_post = async (req, res) => {
         console.error(err);
     };
     if (errors) { res.status(500).send({ error: errors.message }) }
-    else { res.send(`Success! Data saved to ${envVals.table.name} table.`) }
+    else {
+        console.dir(data);
+        res.status(200).send(`Success! Data saved to ${envVals.table.name} table.`) }
 };
 
 // GET
 
 exports.particle_get = (req, res) => {
-    res.send('HELLO PARTICLE!')
+    res.status(200).send('HELLO PARTICLE!')
 }
 
 // // GET form to submit particle test data

@@ -5,10 +5,10 @@ const router = express.Router();
 const particleRouter = require('../controllers/particle_controller');
 
 // POST particle sensor data to database
-router.post('/particle', particleRouter.index_post);
+router.post('/', particleRouter.index_post);
 
 // Respond to GET request at '/particle'
-router.get('/particle', particleRouter.particle_get);
+router.get('/', particleRouter.particle_get);
 
 // // GET form to submit test data
 // router.get('/', particleRouter.index_get);
