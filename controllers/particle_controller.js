@@ -34,7 +34,7 @@ exports.index_post = async (req, res) => {
 
 // GET particle data visualization index page
 exports.particle_get = (req, res) => {
-    res.redirect('html/index.html');
+    res.redirect('html/particle.html');
 }
 
 // GET last hour of particle data
