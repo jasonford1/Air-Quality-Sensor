@@ -10,9 +10,6 @@ router.post('/', particleRouter.index_post);
 // GET particle data visualization index page
 router.get('/', particleRouter.particle_get);
 
-// // GET form to submit test data
-// router.get('/', particleRouter.index_get);
-
 // GET last hour of particle data
 router.get('/data/lastHour', particleRouter.data_last_hour);
 

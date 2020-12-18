@@ -37,12 +37,6 @@ exports.particle_get = (req, res) => {
     res.redirect('html/index.html');
 }
 
-// // GET form to submit particle test data
-// exports.index_get = function(req, res) {
-//     let result = '(Submit test data to get a result)'
-//     res.render('particle', { result: result });
-// };
-
 // GET last hour of particle data
 exports.data_last_hour = async (req, res) => {
     let errors;
