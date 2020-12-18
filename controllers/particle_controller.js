@@ -1,5 +1,6 @@
 const {poolPromise, sql } = require('../config/database')
 const EnvVals = require('../model/envVals')
+const preparedSQL = 'SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals]'
 
 //POST particle sensor data to SQL Server
 exports.index_post = async (req, res) => {
@@ -31,10 +32,9 @@ exports.index_post = async (req, res) => {
         res.status(200).send(`Success! Data saved to ${envVals.table.name} table.`) }
 };
 
-// GET
-
+// GET particle data visualization index page
 exports.particle_get = (req, res) => {
-    res.status(200).send('HELLO PARTICLE!')
+    res.redirect('html/index.html');
 }
 
 // // GET form to submit particle test data
@@ -43,66 +43,82 @@ exports.particle_get = (req, res) => {
 //     res.render('particle', { result: result });
 // };
 
-// // GET last hour of particle data
-// exports.data_last_hour = async (req, res) => {
-//     let errors;
+// GET last hour of particle data
+exports.data_last_hour = async (req, res) => {
+    let errors;
     
-//     // SQL request to get sensor readings from database
-//     try {
-//         const pool = await poolPromise;
-//         const results = await pool.request()
-//             .query(`SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals] WHERE datetime BETWEEN (DATEADD(hh, -1, GETDATE())) and (GETDATE())`);
-//         res.json(results.recordsets[0])
-//     } catch (err) {
-//         errors=err;
-//         console.error(err);
-//     };
-// };
+    // SQL request to get sensor readings from database
+    try {
+        const pool = await poolPromise;
+        const results = await pool.request()
+            .query(preparedSQL + `WHERE datetime BETWEEN (DATEADD(hh, -1, GETDATE())) and (GETDATE())`);
+        res.json(results.recordsets[0])
+    } catch (err) {
+        errors=err;
+        console.error(err);
+    };
+};
 
-// // GET last 24 hours of particle data
-// exports.data_last_24_hours = async (req, res) => {
-//     let errors;
+// GET last 24 hours of particle data
+exports.data_last_24_hours = async (req, res) => {
+    let errors;
     
-//     // SQL request to get sensor readings from database
-//     try {
-//         const pool = await poolPromise;
-//         const results = await pool.request()
-//             .query(`SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals] WHERE datetime BETWEEN (DATEADD(hh, -24, GETDATE())) and (GETDATE())`);
-//         res.json(results.recordsets[0])
-//     } catch (err) {
-//         errors=err;
-//         console.error(err);
-//     };
-// };
+    // SQL request to get sensor readings from database
+    try {
+        const pool = await poolPromise;
+        const results = await pool.request()
+            .query(preparedSQL + `WHERE datetime BETWEEN (DATEADD(hh, -24, GETDATE())) and (GETDATE())`);
+        res.json(results.recordsets[0])
+    } catch (err) {
+        errors=err;
+        console.error(err);
+    };
+};
 
-// // GET last 7 days of particle data
-// exports.data_last_7_days = async (req, res) => {
-//     let errors;
+// GET last 7 days of particle data
+exports.data_last_7_days = async (req, res) => {
+    let errors;
     
-//     // SQL request to get sensor readings from database
-//     try {
-//         const pool = await poolPromise;
-//         const results = await pool.request()
-//             .query(`SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals] WHERE datetime BETWEEN (DATEADD(hh, -168, GETDATE())) and (GETDATE())`);
-//         res.json(results.recordsets[0])
-//     } catch (err) {
-//         errors=err;
-//         console.error(err);
-//     };
-// };
+    // SQL request to get sensor readings from database
+    try {
+        const pool = await poolPromise;
+        const results = await pool.request()
+            .query(preparedSQL + `WHERE datetime BETWEEN (DATEADD(hh, -168, GETDATE())) and (GETDATE())`);
+        res.json(results.recordsets[0])
+    } catch (err) {
+        errors=err;
+        console.error(err);
+    };
+};
 
-// // GET all time particle data
-// exports.data_all_time = async (req, res) => {
-//     let errors;
+// GET last 30 days of particle data
+exports.data_last_30_days = async (req, res) => {
+    let errors;
     
-//     // SQL request to get sensor readings from database
-//     try {
-//         const pool = await poolPromise;
-//         const results = await pool.request()
-//             .query(`SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals]`);
-//         res.json(results.recordsets[0])
-//     } catch (err) {
-//         errors=err;
-//         console.error(err);
-//     };
-// };
+    // SQL request to get sensor readings from database
+    try {
+        const pool = await poolPromise;
+        const results = await pool.request()
+            .query(preparedSQL + `WHERE datetime BETWEEN (DATEADD(hh, -720, GETDATE())) and (GETDATE())`);
+        res.json(results.recordsets[0])
+    } catch (err) {
+        errors=err;
+        console.error(err);
+    };
+};
+
+// GET all time particle data
+exports.data_all_time = async (req, res) => {
+    let errors;
+    
+    // SQL request to get sensor readings from database
+    try {
+        const pool = await poolPromise;
+        const results = await pool.request()
+            .query(preparedSQL);
+        res.json(results.recordsets[0])
+    } catch (err) {
+        errors=err;
+        console.error(err);
+    };
+};

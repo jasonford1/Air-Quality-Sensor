@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Air Quality</title>
+    <link rel="icon" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/d3.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <h1>Home Air Sensor</h1>
+    <a href='#' id='lastHour'>Last Hour</a> | <a href='#' id='last24Hours'>24 Hours</a> | <a href='#' id='last7Days'>7 Days</a> | <a href='#' id='last30Days'>30 Days</a> | <a href='#' id='allTime'>All Time</a><br>
+    <h3>Temperature</h3>
+    <svg id='temp'></svg>
+    <h3>Humidity</h3>
+    <svg id='humidity'></svg>
+    <h3>Particulate</h3>
+    <svg id='particulate'></svg>
+    <h3>Pressure</h3>
+    <svg id='pressure'></svg>
+    <h3>Air Quality</h3>
+    <svg id='air_quality'></svg>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
