@@ -4,7 +4,7 @@
 ### Overview
 During the California Wildfires of 2018 and 2019 San Francisco air quality turned dangerously unhealthy. This made me interested in having an indoor air quality monitoring station. At the end of 2019 I moved to Shenzhen, China where I again experienced multiple 'bad air' days. Faced with free time during the COVID-19 pandemic I decided to take action and build a wifi enabled air quality monitoring station.
 
-As of October 25, 2020 this project has reached a public state and is visible at dudeyo.com/particle.
+As of October 25, 2020 this project has reached a public state and is visible at https://dudeyo.com/particle.
 
 The remainder of this readme is an overview of the project architecture and a timeline of the development history. Questions, comments, and feedback are welcome at jasonford1 at gmail.
 
