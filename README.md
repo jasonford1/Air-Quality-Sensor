@@ -1,5 +1,5 @@
 # Particle.JS
-## A personal IoT and web app project to measure, send, receive, save, and visualize air quality from my office desk
+## IoT and web app project to measure, save, and visualize indoor air quality
 
 ### Overview
 During the California Wildfires of 2018 and 2019 San Francisco air quality turned dangerously unhealthy. This made me interested in having an indoor air quality monitoring station. At the end of 2019 I moved to Shenzhen, China where I again experienced multiple 'bad air' days. Faced with new found free time during the COVID-19 pandemic I decided to take action and build a wifi enabled air quality monitoring station.
