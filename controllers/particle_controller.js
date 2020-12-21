@@ -1,6 +1,6 @@
 const {poolPromise, sql } = require('../config/database')
 const EnvVals = require('../model/envVals')
-const preparedSQL = 'SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals]'
+const preparedSQL = 'SELECT datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals] '
 
 //POST particle sensor data to SQL Server
 exports.index_post = async (req, res) => {
@@ -36,6 +36,22 @@ exports.index_post = async (req, res) => {
 exports.particle_get = (req, res) => {
     res.redirect('html/particle.html');
 }
+
+// GET last record of particle data
+exports.data_last_record = async (req, res) => {
+    let errors;
+
+    // SQL request to get most recent record of sensor data from database
+    try {
+        const pool = await poolPromise;
+        const results = await pool.request()
+            .query('SELECT TOP(1) datetime, temp, pressure, humidity, dust_concentration, air_quality FROM [env-vals] ORDER BY datetime DESC');
+        res.json(results.recordsets[0])
+    } catch (err) {
+        errors=err;
+        console.error(err);
+    };
+};
 
 // GET last hour of particle data
 exports.data_last_hour = async (req, res) => {

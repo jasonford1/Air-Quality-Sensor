@@ -1,9 +1,11 @@
 import getSensorData from './modules/getSensorData.js';
 import updateSensorData from './modules/updateSensorData.js';
+import getLatestRecord from './modules/getLatestRecord.js';
 
 (function onPageLoad() {
-    const defaultTimePeriod = 'lastHour' // Valid defaultTimePeriods: lastHour, last24Hours, last7Days, allTime
-    getSensorData(defaultTimePeriod)
+    const defaultTimePeriod = 'lastHour'; // Valid defaultTimePeriods: lastHour, last24Hours, last7Days, allTime
+    getSensorData(defaultTimePeriod);
+    getLatestRecord();
 })();
 
 // Event listeners to refresh charts

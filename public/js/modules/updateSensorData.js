@@ -14,7 +14,6 @@ function updateSensorData(timePeriod) {
             // Data successfully retreived. Parse then format.
             let data = JSON.parse(this.responseText);
             data.forEach(d => { d.date = new Date(d.datetime); });
-            console.dir(data);
             
             // Render charts
             updateTemp(data);

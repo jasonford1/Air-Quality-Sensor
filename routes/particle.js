@@ -10,6 +10,9 @@ router.post('/', particleRouter.index_post);
 // GET particle data visualization index page
 router.get('/', particleRouter.particle_get);
 
+// GET last record of particle data
+router.get('/data/lastRecord', particleRouter.data_last_record)
+
 // GET last hour of particle data
 router.get('/data/lastHour', particleRouter.data_last_hour);
 
