@@ -59,10 +59,11 @@ Frontend improvements
  - Responsive graph rendering based on viewport size
  - Fix vertical spacing and padding such that Title, Heading, Subheading, and text are appropriately grouped
  - Custom date ranges for graphs
- - Graph interactively shows value at mouse location on hover
+ - Graphs show value on hover at mouse location
+ - Graphs show progress indicator while data is being fetched
 
 Backend improvements
- - Implement data compression strategy such that load times for 30 days and All Time data requests are smaller. Current data resolution is every 30 seconds. Primary strategy load time reduction is to reduce data resolution by finding time block averages (eg. a single data point is 5 minutes or 30 minutes of averaged 30 second data)
+ - Implement data compression strategy such that load times for 30 days and All Time data requests are smaller. Current data resolution is every 30 seconds making data payload excessively large for long time period requests. Primary strategy idea for load time reduction is to reduce data resolution by finding time block averages (eg. a single data point is 5 minutes or 30 minutes of averaged 30 second data)
 
  ### Omnissions from this repository
  The code deployed to Particle Argon is a variation of the code found at https://github.com/particle-iot/air-quality-kit. The modifications made were primarily in changing the brightness of onboard LEDs and screen such that they dimmed or turned off, especially at night.
