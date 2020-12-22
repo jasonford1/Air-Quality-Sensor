@@ -9,7 +9,6 @@ function getLatestRecord() {
         if(this.status === 200) {
             // Data successfully retreived. Parse then format.
             let data = JSON.parse(this.responseText);
-            console.dir(data);
             
             // Render charts
             renderLatestValues(data);
