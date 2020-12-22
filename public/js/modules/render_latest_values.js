@@ -24,7 +24,6 @@ function renderLatestValues(data) {
     particulateElement.innerText += ' ' + data[0].dust_concentration + ' pcs/L';
 
     let airQualityElement = document.getElementById(idAirQuality);
-    console.log(data[0].air_quality)
     let airQuality = (data[0].air_quality === 0) ? 'Fresh Air' :
     (data[0].air_quality === 1) ? 'Low Pollution' :
     (data[0].air_quality === 2) ? 'High Pollution' :
