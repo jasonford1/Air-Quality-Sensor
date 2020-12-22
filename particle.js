@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route Handling
-const particleRouter = require('./routes/particle');
+const particleRouter = require('./routes/particle_router');
 
 // Set Routes
 app.use('/particle', particleRouter);

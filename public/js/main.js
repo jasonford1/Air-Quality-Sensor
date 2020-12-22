@@ -1,6 +1,6 @@
-import getSensorData from './modules/getSensorData.js';
-import updateSensorData from './modules/updateSensorData.js';
-import getLatestRecord from './modules/getLatestRecord.js';
+import getSensorData from './modules/get_sensor_data_on_page_load.js';
+import updateSensorData from './modules/get_sensor_data_custom_time_period.js';
+import getLatestRecord from './modules/get_sensor_data_latest_record.js';
 
 (function onPageLoad() {
     const defaultTimePeriod = 'lastHour'; // Valid defaultTimePeriods: lastHour, last24Hours, last7Days, allTime
