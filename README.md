@@ -53,9 +53,9 @@ December 21, 2020
  December 23, 2020
  - Particle.js renders graphs dynamically to window size on page load
  - Bootstrap implemented
-  - Many small improvements in spacing and typography
-  - Graphs render within their own card
-  - Added 'seconds since last sensor reading'
+    - Many small improvements in spacing and typography
+    - Graphs render within their own card
+    - Added 'seconds since last sensor reading'
 - **App requirements: Express, MSSQL, D3, Bootstrap(added)**
 
 
@@ -73,8 +73,8 @@ Frontend improvements
 
 Backend improvements
  - Implement data compression strategies for better load times:
-  - Reduce data resolution by finding time block averages (eg. a single data point is 5 minutes or 30 minutes of averaged 30 second data)
-  - Select graph timeperiods individually such that graphs can request their own data sets independently
+    - Reduce data resolution by finding time block averages (eg. a single data point is 5 minutes or 30 minutes of averaged 30 second data)
+    - Select graph timeperiods individually such that graphs can request their own data sets independently
 
  ### Omnissions from this repository
  The code deployed to Particle Argon is a variation of the code found at https://github.com/particle-iot/air-quality-kit. The modifications made were primarily in changing the brightness of onboard LEDs and screen such that they dimmed or turned off, especially at night.
