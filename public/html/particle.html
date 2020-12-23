@@ -1,27 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Air Sensor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/d3.css">
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>Air Sensor</title>
   </head>
   <body>
-    <h1 id='h1_header'>Office Desk Air Sensor</h1>
-    <h2 id='h2_header'>Location: Shenzhen China</h2>
-    <h4 id='latest_record'>Last updated: </h4>
-    <a href='#' id='lastHour'>Last Hour</a> | <a href='#' id='last24Hours'>24 Hours</a> | <a href='#' id='last7Days'>7 Days</a> | <a href='#' id='last30Days'>30 Days</a> | <a href='#' id='allTime'>All Time</a><br>
-    <h3 id='temp_current'>Temperature: </h3>
-    <svg id='temp'></svg>
-    <h3 id='humidity_current'>Humidity: </h3>
-    <svg id='humidity'></svg>
-    <h3 id='particulate_current'>Particulate: </h3>
-    <svg id='particulate'></svg>
-    <h3 id='pressure_current'>Pressure: </h3>
-    <svg id='pressure'></svg>
-    <h3 id='air_quality_current'>Air Quality: </h3>
-    Fresh Air : 0 | Low Pollution : 1 | High Pollution : 2 | Danger : 3
-    <svg id='air_quality'></svg>
+    <div class='container border bg-light mb-3 mt-3'>
+      <div class='row'>
+        <div class='col'>
+          <h1 class='mb-0' id='h1_header'>Air Quality at Desk</h1>
+          <p id='latest_record'>Last sensor reading: </p>
+          <p class='small mb-0'>Change graph time period to: <a href='#' id='lastHour'>Last Hour</a> | <a href='#' id='last24Hours'>24 Hours</a> | <a href='#' id='last7Days'>7 Days</a> | <a href='#' id='last30Days'>30 Days</a> | <a href='#' id='allTime'>All Time</a></p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col' id='chart_area'>
+          <div class='card mb-3' id='temp_chart_area'>
+            <h5 class='card-title mt-2 ms-2' id='temp_current'>Temperature: </h5>
+            <svg id='temp'></svg>
+          </div>
+          <div class='card mb-3' id='particulate_chart_area'>
+            <h5 class='card-title  mt-2 ms-2' id='particulate_current'>Particulate: </h5>
+            <svg id='particulate'></svg>
+          </div>
+          <div class='card mb-3' id='humidity_chart_area'>
+            <h5 class='card-title mt-2 ms-2' id='humidity_current'>Humidity: </h5>
+            <svg id='humidity'></svg>
+          </div>
+          <div class='card mb-3' id='pressure_chart_area'>
+            <h5 class='card-title mt-2 ms-2' id='pressure_current'>Pressure: </h5>
+            <svg id='pressure'></svg>
+          </div>
+          <div class='card mb-3' id='air_quality_chart_area'>
+            <h5 class='card-title mt-2 ms-2 mb-0' id='air_quality_current'>Dangerous Gases: </h5>
+            <span class='small ms-2'>None : 1 | Low Pollution : 2 | High Pollution : 3 | Danger : 4</span>
+            <svg id='air_quality'></svg>
+          </div>
+        </div>
+      </div>
+      <p class='text-center mb-3'>Made by: <a href="https://github.com/jasonford1">Jason Ford</a> | Source Code: <a href="https://github.com/jasonford1/particle">GitHub</a></p>
+    </div>
     <script type="module" src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>  
   </body>
 </html>
