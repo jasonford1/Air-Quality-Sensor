@@ -1,10 +1,11 @@
 // Set render location on page
 const id = "#humidity"
+const containerID = "humidity_chart_area"
 
 // Set dimensions and margins of the graph
-let margin = {top: 20, right: 20, bottom: 50, left: 70},
-width = 960 - margin.left - margin.right,
-height = 500 - margin.top - margin.bottom;
+let margin = {top: 20, right: 30, bottom: 35, left: 40},
+    width = document.getElementById(containerID).clientWidth - margin.left - margin.right,
+    height = (width / 3.236) - margin.top - margin.bottom;
 
 // Set the ranges
 let x = d3.scaleTime().range([0, width]);
