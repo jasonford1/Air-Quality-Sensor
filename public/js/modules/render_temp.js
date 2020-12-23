@@ -1,10 +1,12 @@
 // Set render location on page
 const id = "#temp"
+const containerID = "temp_chart_area"
+let latestData;
 
 // Set dimensions and margins of the graph
-let margin = {top: 20, right: 20, bottom: 50, left: 70},
-width = 960 - margin.left - margin.right,
-height = 500 - margin.top - margin.bottom;
+let margin = {top: 15, right: 30, bottom: 35, left: 40},
+    width = document.getElementById(containerID).clientWidth - margin.left - margin.right,
+    height = (width / 3.236) - margin.top - margin.bottom;
 
 // Set the ranges
 let x = d3.scaleTime().range([0, width]);
@@ -16,6 +18,7 @@ let valueline = d3.line()
     .y(function(d) { return y(d.temp); });
 
 function renderTemp(data) {
+    latestData = data;
     // Append the svg obgect to the body of the page
     // Append a 'group' element to 'svg'
     // Move the 'group' element to the top left margin
@@ -27,7 +30,10 @@ function renderTemp(data) {
 
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain(d3.extent(data, function(d) { return d.temp; }));
+    //y.domain(d3.extent(data, function(d) { return d.temp; }));
+    y.domain([18,28]);
+
+    let y_axis = d3.axisLeft().scale(y).ticks(10);
 
     // Add the valueline path.
     svg.append("path")
@@ -43,14 +49,18 @@ function renderTemp(data) {
 
     // Add the y Axis
     svg.append("g")
-        .attr("class", "y axis")
-        .call(d3.axisLeft(y));
+        .call(y_axis);
+        //.call(d3.axisLeft(y));
 }
 
 function updateTemp(data) {
+    latestData = data;
     // Scale the range of the data again 
     x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain(d3.extent(data, function(d) { return d.temp; }));
+    //y.domain(d3.extent(data, function(d) { return d.temp; }));
+    y.domain([18,28]);
+
+    let y_axis = d3.axisLeft().scale(y).ticks(10);
 
     // Select the section we want to apply our changes to
     let svg = d3.select(id).transition();
@@ -64,7 +74,8 @@ function updateTemp(data) {
         .call(d3.axisBottom(x));
     svg.select(".y.axis") // change the y axis
         .duration(750)
-        .call(d3.axisLeft(y));
+        .call(y_axis);
+        //.call(d3.axisLeft(y));
 }
 
 export { renderTemp, updateTemp };
