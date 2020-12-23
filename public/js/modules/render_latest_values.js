@@ -8,8 +8,10 @@ const idAirQuality = "air_quality_current";
 
 function renderLatestValues(data) {
     let latestRecord = document.getElementById(idLatestRecord);
-    let date = new Date(data[0].datetime);
-    latestRecord.innerText += ` ${date}`;
+    let dataDate = new Date(data[0].datetime);
+    let currentDate = new Date();
+    let timeSinceLastUpdate = Math.ceil((currentDate - dataDate) / 1000);
+    latestRecord.innerText += ` ${timeSinceLastUpdate} seconds ago`;
 
     let tempElement = document.getElementById(idTemp);
     tempElement.innerText += ' ' + data[0].temp + '\u2103';
