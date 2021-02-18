@@ -35,20 +35,29 @@ October 23, 2020
 
 October 25, 2020
  - Particle.js app (this repository) is written and deployed to Linux server
- - Particle.js can receive console.particle.io webhook POST request
- - Particle.js can process JSON sensor data package
- - Particle.js can send sensor data to Azure SQL database via Tedious
- - **App package requirements: Express, Tedious**
+ - Particle.js receives console.particle.io webhook POST request
+ - Particle.js processes JSON sensor data package
+ - Particle.js sends sensor data to Azure SQL database via Tedious
+ - **App requirements: Express, Tedious**
 
 December 18, 2020
  - MSSQL implemented for Azure SQL connection pooling
- - Particle.js backend can process requests for last hour, 24 hours, 7 days, 30 days, or all data for all sensors
- - Particle.js frontend can render line graphs of last hour, 24 hours, 7 days, 30 days, or all data for all sensors
- - **App package requirements: Express, MSSQL(added), D3(added), Tedious(removed)**
+ - Particle.js processes requests for last hour, 24 hours, 7 days, 30 days, or all data for all sensors
+ - End user can choose timeperiod of last hour, 24 hours, 7 days, 30 days, or all data for all sensors
+ - **App requirements: Express, MSSQL(added), D3(added), Tedious(removed)**
 
 December 21, 2020
- - Particle.js backend can process requests for current conditions
- - Particle.js frontend can render current conditions on top of each graph for improved at-a-glance viewing
+ - Particle.js processes requests for current conditions
+ - Current conditions rendered in graph title for improved at-a-glance viewing
+
+ December 23, 2020
+ - Particle.js renders graphs dynamically to window size on page load
+ - Bootstrap implemented
+    - Many small improvements in spacing and typography
+    - Graphs render within their own card
+    - Added 'seconds since last sensor reading'
+- **App requirements: Express, MSSQL, D3, Bootstrap(added)**
+
 
 ### Future feature ideas
 Notifications
@@ -56,14 +65,16 @@ Notifications
  - SMS or push notification sent when a threshold is met
 
 Frontend improvements
- - Responsive graph rendering based on viewport size
- - Fix vertical spacing and padding such that Title, Heading, Subheading, and text are appropriately grouped
  - Custom date ranges for graphs
+ - Timeperiod selection by graph instead of globally
+ - Graphs resize on window resize events
  - Graphs show value on hover at mouse location
  - Graphs show progress indicator while data is being fetched
 
 Backend improvements
- - Implement data compression strategy such that load times for 30 days and All Time data requests are smaller. Current data resolution is every 30 seconds making data payload excessively large for long time period requests. Primary strategy idea for load time reduction is to reduce data resolution by finding time block averages (eg. a single data point is 5 minutes or 30 minutes of averaged 30 second data)
+ - Implement data compression strategies for better load times:
+    - Reduce data resolution by finding time block averages (eg. a single data point is 5 minutes or 30 minutes of averaged 30 second data)
+    - Select graph timeperiods individually such that graphs can request their own data sets independently
 
  ### Omnissions from this repository
  The code deployed to Particle Argon is a variation of the code found at https://github.com/particle-iot/air-quality-kit. The modifications made were primarily in changing the brightness of onboard LEDs and screen such that they dimmed or turned off, especially at night.
