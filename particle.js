@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const path = require('path')
 
@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const particleRouter = require('./routes/particle_router');
 
 // Set Routes
-app.use('/particle', particleRouter);
+app.use('/', particleRouter);
 
 // Set connection port
 const PORT = process.env.PARTICLE_PORT || 3001;
